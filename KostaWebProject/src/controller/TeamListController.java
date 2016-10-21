@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.websocket.Session;
 
 import domain.Team;
 import service.facade.BelongService;
@@ -25,12 +24,16 @@ public class TeamListController extends HttpServlet {
 		TeamService teamService = new TeamServiceLogic();
 		BelongService belongService = new BelongServiceLogic();
 		HttpSession session = request.getSession();
+		List<Team> teamList = new ArrayList<>();
 		
 		List<Integer>list = new ArrayList<>(); 
 		list=belongService.searchTeamByMemberId(request.getParameter((String)session.getAttribute("memberId")));
 		
+		teamList=teamService.myTeamList(list);
 		
+		request.setAttribute("teamList", teamList);
 		
+		request.getRequestDispatcher("teamList.jsp").forward(request, response);
 		
 	}
 

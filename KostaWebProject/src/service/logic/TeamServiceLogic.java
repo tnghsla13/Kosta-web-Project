@@ -26,7 +26,7 @@ public class TeamServiceLogic implements TeamService{
 	}
 
 	@Override
-	public List<Team> myTeamList(List<String> memberIdList) {
+	public List<Team> myTeamList(List<Integer> memberIdList) {
 		// TODO Auto-generated method stub
 		return null;
 	}
