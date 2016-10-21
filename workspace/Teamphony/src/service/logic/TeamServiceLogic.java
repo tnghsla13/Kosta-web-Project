@@ -9,7 +9,6 @@ public class TeamServiceLogic implements TeamService{
 
 	@Override
 	public boolean makeTeam(Team team) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
@@ -27,7 +26,9 @@ public class TeamServiceLogic implements TeamService{
 
 	@Override
 	public List<Team> myTeamList(List<String> memberIdList) {
-		// TODO Auto-generated method stub
+		
+		
+		
 		return null;
 	}
 
