@@ -7,6 +7,10 @@ import domain.Team;
 import store.facade.BelongStore;
 
 public class BelongStoreLogic implements BelongStore{
+	
+	private static final String resoource = "resource.config.xml";
+	
+	
 
 	@Override
 	public List<Member> selectMemberByCode(int teamCode) {
@@ -15,7 +19,7 @@ public class BelongStoreLogic implements BelongStore{
 	}
 
 	@Override
-	public List<Team> selectTeamByMemberId(String memberId) {
+	public List<Integer> selectTeamByMemberId(String memberId) {
 		// TODO Auto-generated method stub
 		return null;
 	}

@@ -7,7 +7,7 @@ import domain.Team;
 public interface BelongService {
 	
 	public List<Member> searchMemberByCode(int code);
-	public List<Team> searchTeamByMemberId(String memberId);
+	public List<Integer> searchTeamByMemberId(String memberId);
 	public boolean belongToTeam(String memberId, int teamCode); 
 	public boolean withdrawTeam(String memberId, int teamCode);
 

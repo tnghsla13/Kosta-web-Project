@@ -5,8 +5,15 @@ import java.util.List;
 import domain.Member;
 import domain.Team;
 import service.facade.BelongService;
+import store.facade.BelongStore;
+import store.logic.BelongStoreLogic;
 
 public class BelongServiceLogic implements BelongService{
+	BelongStore store;
+	
+	public BelongServiceLogic(){
+		store = new BelongStoreLogic();
+	}
 
 	@Override
 	public List<Member> searchMemberByCode(int code) {
@@ -15,9 +22,8 @@ public class BelongServiceLogic implements BelongService{
 	}
 
 	@Override
-	public List<Team> searchTeamByMemberId(String memberId) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Integer> searchTeamByMemberId(String memberId) {
+		return store.selectTeamByMemberId(memberId);
 	}
 
 	@Override
