@@ -17,7 +17,7 @@ import service.facade.TeamService;
 import service.logic.BelongServiceLogic;
 import service.logic.TeamServiceLogic;
 
-@WebServlet("/TeamListController")
+@WebServlet("/TeamList.do")
 public class TeamListController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

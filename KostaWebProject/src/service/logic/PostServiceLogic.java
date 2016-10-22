@@ -4,8 +4,11 @@ import java.util.List;
 
 import domain.Post;
 import service.facade.PostService;
+import store.facade.PostStore;
+import store.logic.PostStoreLogic;
 
 public class PostServiceLogic implements PostService{
+	PostStore store = new PostStoreLogic();
 
 	@Override
 	public Boolean registerPost(Post post) {
@@ -15,7 +18,7 @@ public class PostServiceLogic implements PostService{
 
 	@Override
 	public List<Post> searchAll() {
-		// TODO Auto-generated method stub
+		store.selectAllPost();
 		return null;
 	}
 
