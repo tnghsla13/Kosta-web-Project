@@ -21,12 +21,13 @@ import service.logic.TeamServiceLogic;
 public class TeamListController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		TeamService teamService = new TeamServiceLogic();
 		BelongService belongService = new BelongServiceLogic();
 		HttpSession session = request.getSession();
 		List<Team> teamList = new ArrayList<>();
-		
 		List<Integer>list = new ArrayList<>(); 
+		
 		list=belongService.searchTeamByMemberId(request.getParameter((String)session.getAttribute("memberId")));
 		
 		teamList=teamService.myTeamList(list);
