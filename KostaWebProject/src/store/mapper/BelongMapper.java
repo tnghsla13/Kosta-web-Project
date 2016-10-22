@@ -8,7 +8,7 @@ import domain.Team;
 public interface BelongMapper {
 	
 	public List<Member> selectMemberByCode(int teamCode);
-	public List<Team> selectTeamByMemberId(String memberId);
+	public List<Integer> selectTeamByMemberId(String memberId);
 	public boolean insertBelong(String memberId, String teamCode);
 	public boolean deleteBelong(String memberId, String teamCode);
 

@@ -18,8 +18,7 @@ public class PostServiceLogic implements PostService{
 
 	@Override
 	public List<Post> searchAll() {
-		store.selectAllPost();
-		return null;
+		return store.selectAllPost();
 	}
 
 	@Override

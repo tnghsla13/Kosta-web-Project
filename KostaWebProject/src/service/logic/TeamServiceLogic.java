@@ -1,16 +1,20 @@
 package service.logic;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import domain.Team;
 import service.facade.TeamService;
+import store.facade.TeamStore;
+import store.logic.TeamStoreLogic;
 
 public class TeamServiceLogic implements TeamService{
+	
+	TeamStore store = new TeamStoreLogic();
 
 	@Override
 	public boolean makeTeam(Team team) {
-		// TODO Auto-generated method stub
-		return false;
+		return store.createTeam(team);
 	}
 
 	@Override
@@ -27,8 +31,11 @@ public class TeamServiceLogic implements TeamService{
 
 	@Override
 	public List<Team> myTeamList(List<Integer> memberIdList) {
-		// TODO Auto-generated method stub
-		return null;
+		List<Team> list = new ArrayList<>();
+		for (Integer teamCode : memberIdList) {
+			list.add(store.selectTeamByCode(teamCode));
+		}
+		return list;
 	}
 
 }

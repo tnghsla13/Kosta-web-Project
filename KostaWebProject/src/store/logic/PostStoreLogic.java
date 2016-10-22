@@ -1,11 +1,33 @@
 package store.logic;
 
+import java.io.IOException;
+import java.io.Reader;
 import java.util.List;
+
+import org.apache.ibatis.io.Resources;
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import domain.Post;
 import store.facade.PostStore;
+import store.mapper.PostMapper;
 
 public class PostStoreLogic implements PostStore{
+	
+	private static final String resource = "resource/config.xml";
+	
+	private SqlSessionFactory getSessionFactory(){
+		Reader reader = null;
+		
+		try {
+			reader = Resources.getResourceAsReader(resource);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return new SqlSessionFactoryBuilder().build(reader);
+	}
 
 	@Override
 	public boolean insertPost(Post post) {
@@ -15,8 +37,16 @@ public class PostStoreLogic implements PostStore{
 
 	@Override
 	public List<Post> selectAllPost() {
-		// TODO Auto-generated method stub
-		return null;
+		SqlSession session = getSessionFactory().openSession();
+		
+		try{
+			PostMapper mapper = session.getMapper(PostMapper.class);
+			return mapper.selectAllPost();
+		}finally{
+			session.commit();
+			session.close();
+		}
+		
 	}
 
 	@Override
