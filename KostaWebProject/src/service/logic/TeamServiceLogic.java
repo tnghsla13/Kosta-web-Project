@@ -38,4 +38,9 @@ public class TeamServiceLogic implements TeamService{
 		return list;
 	}
 
+	@Override
+	public Team checkTeam(int teamCode) {
+		return store.selectTeamByCode(teamCode);
+	}
+
 }

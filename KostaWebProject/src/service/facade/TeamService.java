@@ -8,4 +8,5 @@ public interface TeamService {
 	public boolean modifyTeam(Team team);
 	public boolean removeTeam(int teamCode);
 	public List<Team> myTeamList(List<Integer> memberIdList);
+	public Team checkTeam(int teamCode);
 }
