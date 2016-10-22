@@ -14,22 +14,15 @@ import store.mapper.TeamMapper;
 
 public class TeamStoreLogic implements TeamStore{
 	
-	private static final String resource = "resource/config.xml";
+private SqlSessionFactory factory;
 	
-	private SqlSessionFactory getSessionFactory(){
-		Reader reader = null;
-		try {
-			reader = Resources.getResourceAsReader(resource);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return new SqlSessionFactoryBuilder().build(reader);
+	public TeamStoreLogic(){
+		factory = SqlSessionFactoryProvider.getSessionFactory();
 	}
 
 	@Override
 	public boolean createTeam(Team team) {
-		SqlSession session = getSessionFactory().openSession();
+		SqlSession session = factory.openSession();
 		try{
 			TeamMapper mapper = session.getMapper(TeamMapper.class);
 			return mapper.createTeam(team);
@@ -53,7 +46,7 @@ public class TeamStoreLogic implements TeamStore{
 
 	@Override
 	public Team selectTeamByCode(int teamCode) {
-		SqlSession session = getSessionFactory().openSession();
+		SqlSession session = factory.openSession();
 		try{
 			TeamMapper mapper = session.getMapper(TeamMapper.class);
 			return mapper.selectTeamByCode(teamCode);
