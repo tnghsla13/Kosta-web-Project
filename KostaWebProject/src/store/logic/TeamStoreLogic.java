@@ -1,12 +1,7 @@
 package store.logic;
 
-import java.io.IOException;
-import java.io.Reader;
-
-import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
-import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import domain.Team;
 import store.facade.TeamStore;
@@ -17,7 +12,7 @@ public class TeamStoreLogic implements TeamStore{
 private SqlSessionFactory factory;
 	
 	public TeamStoreLogic(){
-		factory = SqlSessionFactoryProvider.getSessionFactory();
+		factory = SqlSessionFactoryProvider.getSqlSessionFactory();
 	}
 
 	@Override

@@ -13,7 +13,7 @@ public class BelongStoreLogic implements BelongStore{
 	private SqlSessionFactory factory;
 	
 	public BelongStoreLogic(){
-		factory = SqlSessionFactoryProvider.getSessionFactory();
+		factory = SqlSessionFactoryProvider.getSqlSessionFactory();
 	}
 	
 	@Override

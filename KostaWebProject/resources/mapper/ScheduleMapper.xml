@@ -4,4 +4,20 @@
 
 <mapper namespace = "resources.mapper.ScheduleMapper">
 	
+	<insert id="insertSchedule" parameterType="Schedule">
+		INSERT INTO schedule (startDate, endDate, title, place, contents, teamCode)
+		VALUES (#{startDate}, #{endDate}, #{title}, #{place}, #{contents}, #{teamCode})
+	</insert>
+	
+	<update id="updateSchedule" parameterType="Schedule">
+		UPDATE schedule
+		SET startDate = #{startDate}, endDate = #{endDate}, title = #{title}, place = #{place},
+		contents = #{contents}, teamCode = #{teamCode}
+	</update>
+	
+	<delete id="deleteSchedule" parameterType="int">
+		DELETE schedule 
+		WHERE id = #{id}
+	</delete>
+	
 </mapper>
