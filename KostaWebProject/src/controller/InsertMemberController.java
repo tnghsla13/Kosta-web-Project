@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.regex.Pattern;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -31,7 +30,7 @@ public class InsertMemberController extends HttpServlet {
 		MemberService service = new MemberServiceLogic();
 		Member member = new Member();
 		String id = null, alias = null, pw = null, imgPath = null;
- 
+
 		// file data
 		String root, savePath;
 		root = request.getSession().getServletContext().getRealPath("/");
@@ -50,21 +49,17 @@ public class InsertMemberController extends HttpServlet {
 			// file is generated in directory you mentioned
 			MultipartRequest multipartRequest = new MultipartRequest(request, savePath, MAX_SIZE, "UTF-8",
 					new DefaultFileRenamePolicy());
-			
-			
-			
+
 			// value setting
 			id = multipartRequest.getParameter("id");
 			alias = multipartRequest.getParameter("alias");
 			pw = multipartRequest.getParameter("password");
 			imgPath = multipartRequest.getFilesystemName("imagePath");
 
-			
 			// folder generate
 			folder = new File(savePath + id);
 			folder.mkdirs();
 
-			
 			// default image copy
 			fin = new FileInputStream(new File(savePath + "/default.png"));
 			fout = new FileOutputStream(new File(folder.getAbsolutePath() + "/default.jpg"));
@@ -79,7 +74,7 @@ public class InsertMemberController extends HttpServlet {
 
 				imgPath = folder.getAbsolutePath() + "/default.png";
 
-			// else
+				// else
 			} else {
 
 				String[] fullPathSplit = imgPath.split("/");
@@ -105,9 +100,9 @@ public class InsertMemberController extends HttpServlet {
 
 			e.printStackTrace();
 		}
-		
+
 		// member generate
-		
+
 		member.setId(id);
 		member.setPassword(pw);
 		member.setAlias(alias);
