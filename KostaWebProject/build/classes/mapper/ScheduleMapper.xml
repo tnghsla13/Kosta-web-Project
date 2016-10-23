@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybaits.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace = "store.mapper.ScheduleMapper">
+<mapper namespace = "store.mapper.Schedulemapper">
 	
 	<insert id="insertSchedule" parameterType="Schedule">
 		INSERT INTO schedule (startDate, endDate, title, place, contents, teamCode)
@@ -20,7 +20,7 @@
 		WHERE id = #{id}
 	</delete>
 	
-	<select id="selectByCode" resultType="Schedule">
+	<select id="selectByCode" parameterType="int" resultType="Schedule">
 		SELECT 
 			STARTDATE      AS StartDate
 			,ENDDATE        AS EndDate

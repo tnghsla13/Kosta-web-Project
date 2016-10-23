@@ -9,11 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import domain.Member;
 import domain.Schedule;
-import service.facade.MemberService;
 import service.facade.ScheduleService;
-import service.logic.MemberServiceLogic;
 import service.logic.ScheduleServiceLogic;
 @WebServlet("/ScheduleListController")
 public class ScheduleListController extends HttpServlet {
@@ -21,8 +18,9 @@ public class ScheduleListController extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ScheduleService service = new ScheduleServiceLogic();
-		List<Schedule> list = service.searchByCode(2);
-		System.out.println(list);
+		List<Schedule> list = service.searchByCode(2); 
+		request.setAttribute("list", list);
+		request.getRequestDispatcher("calendar.jsp").forward(request, response);
 	
 	}
 
