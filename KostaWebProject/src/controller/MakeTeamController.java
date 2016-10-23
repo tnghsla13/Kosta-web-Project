@@ -27,13 +27,13 @@ public class MakeTeamController extends HttpServlet {
 		
 		Random random = new Random();
 		
-		team.setCycle(request.getParameter("cycle"));
-		try {
-			team.setEndDate((Date)request.getParameter("endDate"));
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+//		team.setCycle(request.getParameter("cycle"));
+//		try {
+//			team.setEndDate((Date)request.getParameter("endDate"));
+//		} catch (ParseException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 		team.setName(request.getParameter("name"));
 		team.setLeaderId((String)session.getAttribute("id"));
 		while(true){
