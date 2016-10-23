@@ -15,18 +15,10 @@ import store.mapper.PostMapper;
 
 public class PostStoreLogic implements PostStore{
 	
-	private static final String resource = "resource/config.xml";
+	private SqlSessionFactory factory;
 	
-	private SqlSessionFactory getSessionFactory(){
-		Reader reader = null;
-		
-		try {
-			reader = Resources.getResourceAsReader(resource);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return new SqlSessionFactoryBuilder().build(reader);
+	public PostStoreLogic(){
+		factory = SqlSessionFactoryProvider.getSqlSessionFactory();
 	}
 
 	@Override
@@ -37,7 +29,7 @@ public class PostStoreLogic implements PostStore{
 
 	@Override
 	public List<Post> selectAllPost() {
-		SqlSession session = getSessionFactory().openSession();
+		SqlSession session = factory.openSession();
 		
 		try{
 			PostMapper mapper = session.getMapper(PostMapper.class);
