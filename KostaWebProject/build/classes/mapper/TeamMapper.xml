@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybaits.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace = "store.mapper.TeamMapper">
+	<!-- <resultMap type="Team" id="teamMapr">
+		<id property="code" column="code"/>
+		<result property="name" column="name" />
+		<result property="cycle" column="cycle" />
+		<result property="endDate" column="enddate" />
+		<result property="leaderId" column="leaederid" />
+		<result property="gendate" column="gendate" />
+	</resultMap> 
+	
+	<insert id="createTeam" parameterType="Team">
+		insert into team(code, name, cycle, enddate, learderid, gendate,) values(,#{name},#{cycle},#{enddate},#{leaderid},)
+	</insert>
+	
+	<select id="selectTeamByCode" parameterType="Integer" resultMap="teamMap">
+		select code, name, cycle, enddate, leaderid, gendate from team where code=#{code}
+	</select>
+	-->
+	
+</mapper>
