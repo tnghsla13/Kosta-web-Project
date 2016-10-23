@@ -33,9 +33,11 @@ ul {
 </style>
 <body>
 	<table border="3" style="width: 780px">
-		<caption>
+		
 			<h1>2016.10 October</h1>
-		</caption>
+			<a href="insertSchedule.do ">
+				<input type="button" value="일정등록" >
+			</a>
 		<colgroup>
 			<col width ="110px" />
 			<col width ="110px" />
