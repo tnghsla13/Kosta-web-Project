@@ -20,4 +20,16 @@
 		WHERE id = #{id}
 	</delete>
 	
+	<select id="selectByCode" resultType="Schedule">
+		SELECT 
+			STARTDATE      AS StartDate
+			,ENDDATE        AS EndDate
+			,TITLE          AS title
+			,PLACE          AS place
+			,CONTENTS       AS contents
+		FROM SCHEDULE
+		WHERE 1=1
+		AND TEAMCODE = #{code}
+	</select>
+	
 </mapper>

@@ -4,8 +4,19 @@ import java.util.List;
 
 import domain.Schedule;
 import service.facade.ScheduleService;
+import store.facade.ScheduleStore;
+import store.logic.ScheduleStoreLogic;
 
 public class ScheduleServiceLogic implements ScheduleService{
+	
+	private ScheduleStore store;
+	
+	
+	public  ScheduleServiceLogic() {
+		store = new ScheduleStoreLogic();
+	}
+	
+	
 
 	@Override
 	public boolean registerSchedule(Schedule schedule) {
@@ -28,7 +39,7 @@ public class ScheduleServiceLogic implements ScheduleService{
 	@Override
 	public List<Schedule> searchByCode(int code) {
 		// TODO Auto-generated method stub
-		return null;
+		return store.selectByCode(code);
 	}
 
 	@Override

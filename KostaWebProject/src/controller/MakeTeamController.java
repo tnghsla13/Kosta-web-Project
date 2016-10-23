@@ -1,7 +1,7 @@
 package controller;
 
 import java.io.IOException;
-import java.sql.Date;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Random;
 
@@ -26,7 +26,12 @@ public class MakeTeamController extends HttpServlet {
 		Random random = new Random();
 		
 		team.setCycle(request.getParameter("cycle"));
-		team.setEndDate(transFormat.parse(request.getParameter("endDate")));
+		try {
+			team.setEndDate(transFormat.parse(request.getParameter("endDate")));
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		team.setName(request.getParameter("name"));
 		while(true){
 			int teamCode=random.nextInt(9999);

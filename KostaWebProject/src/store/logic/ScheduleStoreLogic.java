@@ -73,8 +73,14 @@ public class ScheduleStoreLogic implements ScheduleStore{
 
 	@Override
 	public List<Schedule> selectByCode(int code) {
-		// TODO Auto-generated method stub
-		return null;
+		SqlSession session = factory.openSession();
+		
+		try{
+			Schedulemapper mapper = session.getMapper(Schedulemapper.class);
+			return mapper.selectByCode(code);
+		}finally{
+			session.close();
+		}
 	}
 
 	@Override
