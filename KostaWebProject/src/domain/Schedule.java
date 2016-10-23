@@ -9,6 +9,7 @@ public class Schedule {
 	private String title;
 	private String place;
 	private String contents;
+	
 	public Date getStartDate() {
 		return StartDate;
 	}
@@ -39,8 +40,5 @@ public class Schedule {
 	public void setContents(String contents) {
 		this.contents = contents;
 	}
-	
-	public int getDay(){
-		return StartDate.getDate();
-	}
+
 }

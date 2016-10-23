@@ -9,7 +9,7 @@ import store.mapper.TeamMapper;
 
 public class TeamStoreLogic implements TeamStore{
 	
-	private SqlSessionFactory factory;
+private SqlSessionFactory factory;
 	
 	public TeamStoreLogic(){
 		factory = SqlSessionFactoryProvider.getSqlSessionFactory();
