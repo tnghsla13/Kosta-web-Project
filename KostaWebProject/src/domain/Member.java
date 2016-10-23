@@ -6,7 +6,7 @@ public class Member {
 	private String password;
 	private String alias;
 	private String imagePath;
-	private String starPoint;
+	private double starPoint;
 	
 	public String getId() {
 		return id;
@@ -32,10 +32,10 @@ public class Member {
 	public void setImagePath(String imagePath) {
 		this.imagePath = imagePath;
 	}
-	public String getStarPoint() {
+	public double getStarPoint() {
 		return starPoint;
 	}
-	public void setStarPoint(String starPoint) {
+	public void setStarPoint(double starPoint) {
 		this.starPoint = starPoint;
 	}
 	

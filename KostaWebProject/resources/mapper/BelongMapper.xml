@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybaits.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace = "resources.mapper.BelongMapper">
+<mapper namespace = "store.mapper.BelongMapper">
 
 	<select id="selectTeamByMemberId" parameterType="String" resultType="int">
 		select teamcode from belong where numberid = #{id} 

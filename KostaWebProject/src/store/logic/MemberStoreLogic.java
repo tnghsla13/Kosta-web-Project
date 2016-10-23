@@ -1,32 +1,58 @@
 package store.logic;
 
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
+
 import domain.Member;
 import store.facade.MemberStore;
+import store.mapper.MemberMapper;
+import store.mapper.TeamMapper;
 
-public class MemberStoreLogic implements MemberStore{
+public class MemberStoreLogic implements MemberStore {
+
+	private SqlSessionFactory factory;
+
+	public MemberStoreLogic() {
+
+		factory = SqlSessionFactoryProvider.getSqlSessionFactory();
+
+	}
 
 	@Override
 	public boolean insertMember(Member member) {
-		// TODO Auto-generated method stub
-		return false;
+
+		SqlSession session = factory.openSession();
+		try {
+			MemberMapper mapper = session.getMapper(MemberMapper.class);
+			return mapper.insertMember(member);
+
+		} finally {
+			session.commit();
+			session.close();
+		}
 	}
 
 	@Override
 	public boolean updateMember(Member member) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public boolean deleteMember(String memberId) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public Member selectByMemberId(String memberId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
+		SqlSession session = factory.openSession();
+		try {
+			MemberMapper mapper = session.getMapper(MemberMapper.class);
+			return mapper.selectByMemberId(memberId);
+
+		} finally {
+			
+			session.close();
+		}
+	}
 }
