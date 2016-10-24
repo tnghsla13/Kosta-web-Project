@@ -26,9 +26,9 @@ public class TeamListController extends HttpServlet {
 		BelongService belongService = new BelongServiceLogic();
 		HttpSession session = request.getSession();
 		List<Team> teamList = new ArrayList<>();
-		List<Integer>list = new ArrayList<>(); 
+		List<Integer> list = new ArrayList<>(); 
 		
-		list=belongService.searchTeamByMemberId(request.getParameter((String)session.getAttribute("memberId")));
+		list=belongService.searchTeamByMemberId(request.getParameter((String)session.getAttribute("loginId")));
 		
 		teamList=teamService.myTeamList(list);
 		

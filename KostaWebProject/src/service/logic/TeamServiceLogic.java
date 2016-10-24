@@ -30,9 +30,9 @@ public class TeamServiceLogic implements TeamService{
 	}
 
 	@Override
-	public List<Team> myTeamList(List<Integer> memberIdList) {
+	public List<Team> myTeamList(List<Integer> teamIdList) {
 		List<Team> list = new ArrayList<>();
-		for (Integer teamCode : memberIdList) {
+		for (Integer teamCode : teamIdList) {
 			list.add(store.selectTeamByCode(teamCode));
 		}
 		return list;

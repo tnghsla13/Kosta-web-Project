@@ -7,6 +7,6 @@ public interface TeamService {
 	public boolean makeTeam(Team team);
 	public boolean modifyTeam(Team team);
 	public boolean removeTeam(int teamCode);
-	public List<Team> myTeamList(List<Integer> memberIdList);
+	public List<Team> myTeamList(List<Integer> teamIdList);
 	public Team checkTeam(int teamCode);
 }
