@@ -13,8 +13,8 @@
 <title></title>
 
 <!-- Stylesheets -->
-<link rel="stylesheet" href="resources/css/registerStyle.css">
-<link rel="stylesheet" href="resources/css/registerSet.css">
+<link rel="stylesheet" href="resources/register/css/registerStyle.css">
+<link rel="stylesheet" href="resources/register/css/registerSet.css">
 
 <!--Google Fonts-->
 <link href='https://fonts.googleapis.com/css?family=Playfair+Display'
@@ -45,11 +45,12 @@ function myFunction() {
 					</header>
 				</div>
 
-				<form action="register.do" method="post" enctype="multipart/form-data">
+				<form action="register.do" method="post"
+					enctype="multipart/form-data">
 					<div class="col-md-6 right-side">
 
-						<img src="resources/images/default.jpg" alt="사진없음"
-							id="profileImage" width="100" height="130"> <input
+						<img src="resources/images/default.png" alt="사진없음"
+							id="profileImage" width="100" height="130"> <br> <input
 							type="file" id="imagePath" name="imagePath" />
 						<button type="button" onclick="myFunction()">등록</button>
 
@@ -81,16 +82,7 @@ function myFunction() {
 								class="input__label-content input__label-content--hoshi">비밀번호</span>
 						</label>
 
-
-						</span> <span class="input input--hoshi"> <input
-							class="input__field input__field--hoshi" type="password"
-							id="password1" name="password1" /> <label
-							class="input__label input__label--hoshi input__label--hoshi-color-3"
-							for="password1"> <span
-								class="input__label-content input__label-content--hoshi">비밀번호
-									확인</span>
-						</label>
-						</span>
+						</span> <span class="input input--hoshi"></span>
 						<div class="cta">
 							<button type="submit" class="btn btn-primary pull-left">회원가입</button>
 						</div>
@@ -108,8 +100,8 @@ function myFunction() {
 	<!-- Scripts -->
 	<script
 		src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-	<script src="js/scripts.js"></script>
-	<script src="js/classie.js"></script>
+	<script src="register/js/scripts.js"></script>
+	<script src="register/js/classie.js"></script>
 
 	<script>
   (function() {
