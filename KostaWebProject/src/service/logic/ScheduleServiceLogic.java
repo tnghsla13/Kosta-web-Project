@@ -11,29 +11,26 @@ public class ScheduleServiceLogic implements ScheduleService{
 	
 	private ScheduleStore store;
 	
-	
 	public  ScheduleServiceLogic() {
 		store = new ScheduleStoreLogic();
 	}
 	
-	
-
 	@Override
 	public boolean registerSchedule(Schedule schedule) {
 		// TODO Auto-generated method stub
-		return false;
+		return store.insertSchedule(schedule);
 	}
 
 	@Override
 	public boolean modifySchedule(Schedule schedule) {
 		// TODO Auto-generated method stub
-		return false;
+		return store.updateSchedule(schedule);
 	}
 
 	@Override
 	public boolean removeSchedule(int scheduleId) {
 		// TODO Auto-generated method stub
-		return false;
+		return store.deleteSchedule(scheduleId);
 	}
 
 	@Override

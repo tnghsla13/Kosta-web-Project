@@ -5,8 +5,8 @@
 <mapper namespace = "store.mapper.ScheduleMapper">
 	
 	<insert id="insertSchedule" parameterType="Schedule">
-		INSERT INTO schedule (startDate, endDate, title, place, contents, teamCode)
-		VALUES (#{startDate}, #{endDate}, #{title}, #{place}, #{contents}, #{teamCode})
+		INSERT INTO schedule (id, startDate, endDate, title, place, contents, teamCode)
+		VALUES (#{id}, #{startDate}, #{endDate}, #{title}, #{place}, #{contents}, #{teamCode})
 	</insert>
 	
 	<update id="updateSchedule" parameterType="Schedule">

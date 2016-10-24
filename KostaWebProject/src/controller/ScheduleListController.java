@@ -15,8 +15,7 @@ import service.facade.MemberService;
 import service.facade.ScheduleService;
 import service.logic.MemberServiceLogic;
 import service.logic.ScheduleServiceLogic;
-@WebServlet("/ScheduleListController")
-public class ScheduleListController extends HttpServlet {
+@WebServlet("/ScheduleListController")public class ScheduleListController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
