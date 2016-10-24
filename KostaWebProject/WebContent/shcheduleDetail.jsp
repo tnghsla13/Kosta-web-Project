@@ -15,9 +15,9 @@
 
 <body>
 	
-	<h3>일정내용입니다.</h3>
-<a href="updateSchedule.do?scheduleId=${schedule.scheduleId}">	<input type="button" value="수정"> </a>
-	<input type="button" value="삭제">
+	<h3>일정상세</h3>
+	<a class="btn vtn-xs btn-warning" href="updateSchedule.do?scheduleId=${schedule.scheduleId}">UPDATE</a>
+	<a class="btn vtn-xs btn-danger" href="deleteSchedule.do?scheduleId=${schedule.scheduleId}">DELETE</a>
 	<table class="table">
 		<colgroup>
 			<col width="150">
@@ -25,19 +25,23 @@
 		</colgroup>
 		<tr>
 			<th>제목</th>
-			<td>${schedule.title }</td>
-		</tr>
-		<tr>
-			<%-- <th>날짜</th>
-			<td>${schedule.StartDate }</td> --%>
-		</tr>
-		<tr>
-			<th>일정내용</th>
-			<td>${schedule.contents }</td>
+			<td><input id="scheduleTitle" name="scheduleTitle"
+				class="form-control" type="text" value="${schedule.title }"
+				readonly></td>
 		</tr>
 		<tr>
 			<th>장소</th>
-			<td>${schedule.place }</td>
+			<td><input id="schedulePlace" name="schedulePlace"
+					class="form-control" type="text" value="${schedule.place }" readonly></td>
+		</tr>
+		<tr>
+			<%-- <th>일시</th>
+			<td>${schedule.StartDate }</td> --%>
+		</tr>
+		<tr>
+			<th>내용</th>
+			<td><textarea id="scheduleContents" name="scheduleContents"
+					class="form-control" rows="7" readonly>${schedule.contents }</textarea></td>
 		</tr>
 	</table>
 	<br>

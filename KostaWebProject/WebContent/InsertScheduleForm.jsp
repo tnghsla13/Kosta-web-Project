@@ -11,9 +11,10 @@
 <script src="resources/js/jquery.min.js"></script>
 <script type="text/javascript" src="resources/js/schedule/schedule.js"></script>
 </head>
+
 <body>
 	<input id="scheduleId" name="scheduleId" type="hidden" value="">
-	<a href="scheduleList.do">달력으로 돌아가기</a>
+	<a href="ScheduleListController">달력으로 돌아가기</a>
 	<h3>일정등록</h3>
 
 	<br>

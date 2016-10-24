@@ -13,8 +13,8 @@
 <title></title>
 
 <!-- Stylesheets -->
-<link rel="stylesheet" href="resources/register/css/registerStyle.css">
-<link rel="stylesheet" href="resources/register/css/registerSet.css">
+<link rel="stylesheet" href="resources/css/registerStyle.css">
+<link rel="stylesheet" href="resources/css/registerSet.css">
 
 <!--Google Fonts-->
 <link href='https://fonts.googleapis.com/css?family=Playfair+Display'

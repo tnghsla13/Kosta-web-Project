@@ -1,9 +1,9 @@
 package controller;
 
 import java.io.IOException;
+import java.sql.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -28,21 +28,22 @@ public class InsertScheduleController extends HttpServlet {
 		SimpleDateFormat in = new SimpleDateFormat("yyyy-MM-dd HH:MM");
 		Date beginDate = null;
 		try {
-			beginDate = in.parse(startDate);
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		String endDate = request.getParameter("endDay") + " " + request.getParameter("endHour");
-		SimpleDateFormat inn = new SimpleDateFormat("yyyy-MM-dd HH:MM");
-		Date finishDate = null;
-		try {
-			finishDate = inn.parse(endDate);
+			beginDate = (Date) in.parse(startDate);
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
+		System.out.println(beginDate);
+//		String endDate = request.getParameter("endDay") + " " + request.getParameter("endHour");
+//		SimpleDateFormat inn = new SimpleDateFormat("yyyy-MM-dd HH:MM");
+//		Date finishDate = null;
+//		try {
+//			finishDate = inn.parse(endDate);
+//		} catch (ParseException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 		String contents = request.getParameter("scheduleContents");
 		
 		HttpSession session = request.getSession();
@@ -52,12 +53,11 @@ public class InsertScheduleController extends HttpServlet {
 		schedule.setTitle(title);
 		schedule.setPlace(place);
 		schedule.setStartDate(beginDate);
-		schedule.setEndDate(finishDate);
+//		schedule.setEndDate(finishDate);
 		schedule.setContents(contents);
 		
 		ScheduleService service = new ScheduleServiceLogic();
 		service.registerSchedule(schedule);
 		
-		response.sendRedirect("scheduleList.do");	
-		}
+response.sendRedirect("ScheduleListController");		}
 }
