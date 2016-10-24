@@ -58,6 +58,6 @@ public class InsertScheduleController extends HttpServlet {
 		ScheduleService service = new ScheduleServiceLogic();
 		service.registerSchedule(schedule);
 		
-		response.sendRedirect("calender.do");	
+		response.sendRedirect("scheduleList.do");	
 		}
 }

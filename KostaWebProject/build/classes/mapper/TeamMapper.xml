@@ -6,7 +6,7 @@
 
 	
 	<insert id="createTeam" parameterType="Team">
-		insert into team(name, cycle, code) values(#{name},#{cycle},#{code})
+		insert into team(name, cycle, code, leaderId, endDate) values(#{name},#{cycle},#{code},#{leaderId),to_Date(#{endDate}))
 	</insert>
 	
 	<select id="selectTeamByCode" parameterType="Integer" resultType="Team">

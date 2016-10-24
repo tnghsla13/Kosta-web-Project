@@ -12,8 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import domain.Schedule;
 import service.facade.ScheduleService;
 import service.logic.ScheduleServiceLogic;
-@WebServlet("/ScheduleList.do")
-public class ScheduleListController extends HttpServlet {	private static final long serialVersionUID = 1L;
+@WebServlet("/ScheduleList.do")public class ScheduleListController extends HttpServlet {	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ScheduleService service = new ScheduleServiceLogic();

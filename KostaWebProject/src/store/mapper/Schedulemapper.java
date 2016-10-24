@@ -15,4 +15,3 @@ public interface ScheduleMapper {
 	 Schedule selectByScheduleId(int scheduleId);
 
 }
-

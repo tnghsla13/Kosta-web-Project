@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.sql.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Random;
@@ -13,7 +14,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import domain.Team;
+import service.facade.BelongService;
 import service.facade.TeamService;
+import service.logic.BelongServiceLogic;
 import service.logic.TeamServiceLogic;
 @WebServlet("/makeTeam.do")
 public class MakeTeamController extends HttpServlet {
@@ -22,19 +25,14 @@ public class MakeTeamController extends HttpServlet {
 		
 		HttpSession session = request.getSession();
 		TeamService service = new TeamServiceLogic();
-//		SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd");
+		BelongService belongService = new BelongServiceLogic();
 		Team team = new Team();
 		
 		Random random = new Random();
 		
 		team.setCycle(Integer.parseInt(request.getParameter("cycle")));
 
-//		try {
-//			team.setEndDate(transFormat.parse(request.getParameter("endDate")));
-//		} catch (ParseException e) {
-//			e.printStackTrace();
-//		}
-
+		team.setEndDate(request.getParameter("endDate"));
 
 		team.setName(request.getParameter("name"));
 		while(true){
@@ -49,6 +47,7 @@ public class MakeTeamController extends HttpServlet {
 		
 		team.setLeaderId((String)session.getAttribute("loginId"));
 		service.makeTeam(team);
+		belongService.belongToTeam(team.getLeaderId(), team.getCode());
 		response.sendRedirect("main.jsp");
 	}
 

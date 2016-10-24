@@ -7,7 +7,7 @@ public class Team {
 
 	private String name;
 	private int cycle;
-	private Date endDate;
+	private String endDate;
 	private int code;
 	private List<Member> memberList;
 	private String leaderId;
@@ -29,11 +29,11 @@ public class Team {
 		this.cycle = cycle;
 	}
 
-	public Date getEndDate() {
+	public String getEndDate() {
 		return endDate;
 	}
 
-	public void setEndDate(Date endDate) {
+	public void setEndDate(String endDate) {
 		this.endDate = endDate;
 	}
 
