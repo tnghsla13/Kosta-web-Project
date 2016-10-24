@@ -10,8 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/InsertScheduleController")
 public class InsertScheduleController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    public InsertScheduleController() {
-    }
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	}
 

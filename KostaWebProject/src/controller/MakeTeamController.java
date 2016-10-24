@@ -10,15 +10,17 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import domain.Team;
 import service.facade.TeamService;
 import service.logic.TeamServiceLogic;
-@WebServlet("/MakeTeamController")
+@WebServlet("/makeTeam.do")
 public class MakeTeamController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		HttpSession session = request.getSession();
 		TeamService service = new TeamServiceLogic();
 		SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		Team team = new Team();
@@ -27,9 +29,12 @@ public class MakeTeamController extends HttpServlet {
 		
 		team.setCycle(request.getParameter("cycle"));
 
-		//team.setEndDate(transFormat.parse(request.getParameter("endDate")));
-
-		//team.setEndDate(transFormat.parse(request.getParameter("endDate")));
+		try {
+			team.setEndDate(transFormat.parse(request.getParameter("endDate").toString()));
+		} catch (ParseException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 
 		try {
 			team.setEndDate(transFormat.parse(request.getParameter("endDate")));
@@ -48,6 +53,8 @@ public class MakeTeamController extends HttpServlet {
 				}
 			}
 		}
+		
+		team.setLeaderId((String)session.getAttribute("loginId"));
 		service.makeTeam(team);
 		response.sendRedirect("main.jsp");
 	}
