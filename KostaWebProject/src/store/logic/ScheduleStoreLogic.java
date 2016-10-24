@@ -91,11 +91,14 @@ public class ScheduleStoreLogic implements ScheduleStore {
 
 	@Override
 	public Schedule selectByScheduleId(int scheduleId) {
+		Schedule sch = new Schedule();
 		// TODO Auto-generated method stub
 		SqlSession session = factory.openSession();
 		try{
 			ScheduleMapper mapper = session.getMapper(ScheduleMapper.class);
-			return mapper.selectByScheduleId(scheduleId);
+			sch=mapper.selectByScheduleId(scheduleId);
+			System.out.println(sch.getStartDate().toString());
+			return sch;
 		}finally{
 			session.close();
 		}

@@ -22,7 +22,8 @@
 	
  	<select id="selectByCode" resultType="Schedule" parameterType="int">
 		SELECT 
-			STARTDATE      AS StartDate
+			id as scheduleId
+			,STARTDATE      AS StartDate
 			,ENDDATE        AS EndDate
 			,TITLE          AS title
 			,PLACE          AS place
@@ -33,7 +34,8 @@
 	
 	<select id="selectByScheduleId" resultType="Schedule" parameterType="int">
 		SELECT 
-			STARTDATE      AS StartDate
+			id as scheduleId
+			,STARTDATE      AS StartDate
 			,ENDDATE        AS EndDate
 			,TITLE          AS title
 			,PLACE          AS place
