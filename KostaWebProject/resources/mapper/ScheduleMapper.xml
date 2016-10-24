@@ -31,5 +31,16 @@
 		WHERE TEAMCODE = #{code}
 	</select>
 	
+	<select id="selectByScheduleId" resultType="Schedule" parameterType="int">
+		SELECT 
+			STARTDATE      AS StartDate
+			,ENDDATE        AS EndDate
+			,TITLE          AS title
+			,PLACE          AS place
+			,CONTENTS       AS contents
+		FROM schedule
+		WHERE id = #{id}
+	</select>
+	
 </mapper>
 

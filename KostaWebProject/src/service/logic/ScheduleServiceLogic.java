@@ -51,7 +51,7 @@ public class ScheduleServiceLogic implements ScheduleService{
 	@Override
 	public Schedule searchByScheduleId(int scheduleId) {
 		// TODO Auto-generated method stub
-		return null;
+		return store.selectByScheduleId(scheduleId);
 	}
 
 }
