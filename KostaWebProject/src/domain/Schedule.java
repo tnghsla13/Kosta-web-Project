@@ -4,23 +4,30 @@ import java.util.Date;
 
 public class Schedule {
 	
-	private Date StartDate;
-	private Date EndDate;
+	private int scheduleId;
+	private Date startDate;
+	private Date endDate;
 	private String title;
 	private String place;
 	private String contents;
 	
+	
+	
+	public int getScheduleId() {
+		return scheduleId;
+	}
+	
 	public Date getStartDate() {
-		return StartDate;
+		return startDate;
 	}
 	public void setStartDate(Date startDate) {
-		StartDate = startDate;
+		startDate = startDate;
 	}
 	public Date getEndDate() {
-		return EndDate;
+		return endDate;
 	}
 	public void setEndDate(Date endDate) {
-		EndDate = endDate;
+		endDate = endDate;
 	}
 	public String getTitle() {
 		return title;
@@ -42,7 +49,7 @@ public class Schedule {
 	}
 	
 	public int getDay(){
-		int day = StartDate.getDate();
+		int day = startDate.getDate();
 		return day;
 	}
 
