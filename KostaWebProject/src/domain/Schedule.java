@@ -40,5 +40,10 @@ public class Schedule {
 	public void setContents(String contents) {
 		this.contents = contents;
 	}
+	
+	public int getDay(){
+		int day = StartDate.getDate();
+		return day;
+	}
 
 }
