@@ -10,23 +10,23 @@ import domain.Schedule;
 import store.facade.ScheduleStore;
 import store.mapper.ScheduleMapper;
 
-public class ScheduleStoreLogic implements ScheduleStore{
+public class ScheduleStoreLogic implements ScheduleStore {
 	private SqlSessionFactory factory;
-	
+
 	public ScheduleStoreLogic() {
 		factory = SqlSessionFactoryProvider.getSqlSessionFactory();
 	}
-	
+
 	@Override
 	public boolean insertSchedule(Schedule schedule) {
 		SqlSession session = factory.openSession();
-		
-		try{
+
+		try {
 			ScheduleMapper mapper = session.getMapper(ScheduleMapper.class);
-			if(mapper.insertSchedule(schedule)){
+			if (mapper.insertSchedule(schedule)) {
 				session.commit();
 				return true;
-			}else{
+			} else {
 				session.rollback();
 				return false;
 			}
@@ -39,16 +39,16 @@ public class ScheduleStoreLogic implements ScheduleStore{
 	public boolean updateSchedule(Schedule schedule) {
 		SqlSession session = factory.openSession();
 
-		try{
+		try {
 			ScheduleMapper mapper = session.getMapper(ScheduleMapper.class);
-			if(mapper.updateSchedule(schedule)){
+			if (mapper.updateSchedule(schedule)) {
 				session.commit();
 				return true;
-			}else{
+			} else {
 				session.rollback();
 				return false;
 			}
-		}finally{
+		} finally {
 			session.close();
 		}
 	}
@@ -56,17 +56,17 @@ public class ScheduleStoreLogic implements ScheduleStore{
 	@Override
 	public boolean deleteSchedule(int scheduleId) {
 		SqlSession session = factory.openSession();
-		
-		try{
+
+		try {
 			ScheduleMapper mapper = session.getMapper(ScheduleMapper.class);
-			if(mapper.deleteSchedule(scheduleId)){
+			if (mapper.deleteSchedule(scheduleId)) {
 				session.commit();
 				return true;
-			}else{
+			} else {
 				session.rollback();
 				return false;
 			}
-		}finally{
+		} finally {
 			session.close();
 		}
 	}
@@ -74,11 +74,11 @@ public class ScheduleStoreLogic implements ScheduleStore{
 	@Override
 	public List<Schedule> selectByCode(int code) {
 		SqlSession session = factory.openSession();
-		
-		try{
+
+		try {
 			ScheduleMapper mapper = session.getMapper(ScheduleMapper.class);
 			return mapper.selectByCode(code);
-		}finally{
+		} finally {
 			session.close();
 		}
 	}
@@ -96,3 +96,5 @@ public class ScheduleStoreLogic implements ScheduleStore{
 	}
 
 }
+
+

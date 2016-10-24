@@ -4,9 +4,9 @@
 
 <mapper namespace="store.mapper.ScheduleMapper">
 	
-	<insert id="insertSchedule" parameterType="Schedule">
-		INSERT INTO schedule (id, startDate, endDate, title, place, contents, teamCode)
-		VALUES (#{id}, #{startDate}, #{endDate}, #{title}, #{place}, #{contents}, #{teamCode})
+<!-- 	<insert id="insertSchedule" parameterType="Schedule">
+		INSERT INTO schedule (startDate, endDate, title, place, contents, teamCode)
+		VALUES (#{startDate}, #{endDate}, #{title}, #{place}, #{contents}, #{teamCode})
 	</insert>
 	
 	<update id="updateSchedule" parameterType="Schedule">
@@ -18,18 +18,18 @@
 	<delete id="deleteSchedule" parameterType="int">
 		DELETE schedule 
 		WHERE id = #{id}
-	</delete>
+	</delete> -->
 	
-	<select id="selectByCode" resultType="Schedule">
+ 	<select id="selectByCode" resultType="Schedule" parameterType="int">
 		SELECT 
 			STARTDATE      AS StartDate
 			,ENDDATE        AS EndDate
 			,TITLE          AS title
 			,PLACE          AS place
 			,CONTENTS       AS contents
-		FROM SCHEDULE
-		WHERE 1=1
-		AND TEAMCODE = #{code}
+		FROM schedule
+		WHERE TEAMCODE = #{code}
 	</select>
 	
 </mapper>
+
