@@ -55,7 +55,8 @@ public class InsertMemberController extends HttpServlet {
 			alias = multipartRequest.getParameter("alias");
 			pw = multipartRequest.getParameter("password");
 			imgPath = multipartRequest.getFilesystemName("imagePath");
-
+			System.out.println(imgPath);
+			
 			// folder generate
 			folder = new File(savePath + id);
 			folder.mkdirs();
