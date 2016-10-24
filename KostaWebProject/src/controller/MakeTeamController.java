@@ -18,36 +18,29 @@ import service.logic.TeamServiceLogic;
 @WebServlet("/makeTeam.do")
 public class MakeTeamController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		HttpSession session = request.getSession();
 		TeamService service = new TeamServiceLogic();
-		SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+//		SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd");
 		Team team = new Team();
 		
 		Random random = new Random();
 		
-		team.setCycle(request.getParameter("cycle"));
+		team.setCycle(Integer.parseInt(request.getParameter("cycle")));
 
-		try {
-			team.setEndDate(transFormat.parse(request.getParameter("endDate").toString()));
-		} catch (ParseException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
+//		try {
+//			team.setEndDate(transFormat.parse(request.getParameter("endDate")));
+//		} catch (ParseException e) {
+//			e.printStackTrace();
+//		}
 
-		try {
-			team.setEndDate(transFormat.parse(request.getParameter("endDate")));
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 
 		team.setName(request.getParameter("name"));
 		while(true){
 			int teamCode=random.nextInt(9999);
 			if(teamCode>999){
-				if(service.checkTeam(teamCode).equals(null)){
+				if(service.checkTeam(teamCode)==null){
 					team.setCode(teamCode);
 					break;
 				}

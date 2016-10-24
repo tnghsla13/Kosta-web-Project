@@ -42,6 +42,7 @@ public class InsertMemberController extends HttpServlet {
 		byte[] buf = new byte[1024];
 		FileInputStream fin = null;
 		FileOutputStream fout = null;
+		
 
 		try {
 

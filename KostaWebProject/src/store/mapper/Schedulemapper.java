@@ -5,7 +5,7 @@ import java.util.List;
 
 import domain.Schedule;
 
-public interface Schedulemapper {
+public interface ScheduleMapper {
 	
 	 boolean insertSchedule(Schedule schedule);
 	 boolean updateSchedule(Schedule schedule);

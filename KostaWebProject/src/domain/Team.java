@@ -1,12 +1,12 @@
 package domain;
 
-import java.sql.Date;
+import java.util.Date;
 import java.util.List;
 
 public class Team {
 
 	private String name;
-	private String cycle;
+	private int cycle;
 	private Date endDate;
 	private int code;
 	private List<Member> memberList;
@@ -21,11 +21,11 @@ public class Team {
 		this.name = name;
 	}
 
-	public String getCycle() {
+	public int getCycle() {
 		return cycle;
 	}
 
-	public void setCycle(String cycle) {
+	public void setCycle(int cycle) {
 		this.cycle = cycle;
 	}
 

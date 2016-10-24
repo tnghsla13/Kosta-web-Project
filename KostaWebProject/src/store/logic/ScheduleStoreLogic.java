@@ -8,7 +8,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 
 import domain.Schedule;
 import store.facade.ScheduleStore;
-import store.mapper.Schedulemapper;
+import store.mapper.ScheduleMapper;
 
 public class ScheduleStoreLogic implements ScheduleStore{
 	private SqlSessionFactory factory;
@@ -22,7 +22,7 @@ public class ScheduleStoreLogic implements ScheduleStore{
 		SqlSession session = factory.openSession();
 		
 		try{
-			Schedulemapper mapper = session.getMapper(Schedulemapper.class);
+			ScheduleMapper mapper = session.getMapper(ScheduleMapper.class);
 			if(mapper.insertSchedule(schedule)){
 				session.commit();
 				return true;
@@ -40,7 +40,7 @@ public class ScheduleStoreLogic implements ScheduleStore{
 		SqlSession session = factory.openSession();
 
 		try{
-			Schedulemapper mapper = session.getMapper(Schedulemapper.class);
+			ScheduleMapper mapper = session.getMapper(ScheduleMapper.class);
 			if(mapper.updateSchedule(schedule)){
 				session.commit();
 				return true;
@@ -58,7 +58,7 @@ public class ScheduleStoreLogic implements ScheduleStore{
 		SqlSession session = factory.openSession();
 		
 		try{
-			Schedulemapper mapper = session.getMapper(Schedulemapper.class);
+			ScheduleMapper mapper = session.getMapper(ScheduleMapper.class);
 			if(mapper.deleteSchedule(scheduleId)){
 				session.commit();
 				return true;
@@ -76,7 +76,7 @@ public class ScheduleStoreLogic implements ScheduleStore{
 		SqlSession session = factory.openSession();
 		
 		try{
-			Schedulemapper mapper = session.getMapper(Schedulemapper.class);
+			ScheduleMapper mapper = session.getMapper(ScheduleMapper.class);
 			return mapper.selectByCode(code);
 		}finally{
 			session.close();
