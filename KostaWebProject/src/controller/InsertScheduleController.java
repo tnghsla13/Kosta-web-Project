@@ -45,8 +45,8 @@ public class InsertScheduleController extends HttpServlet {
 		
 		String contents = request.getParameter("scheduleContents");
 		
-//		HttpSession session = request.getSession();
-//		int teamCode = session.getAttribute("code");
+		HttpSession session = request.getSession();
+//		int teamCode = (int) session.getAttribute("code");
 		
 		Schedule schedule = new Schedule();
 		schedule.setTitle(title);
@@ -58,6 +58,6 @@ public class InsertScheduleController extends HttpServlet {
 		ScheduleService service = new ScheduleServiceLogic();
 		service.registerSchedule(schedule);
 		
-		response.sendRedirect("Calender.do");	}
-
+		response.sendRedirect("calender.do");	
+		}
 }

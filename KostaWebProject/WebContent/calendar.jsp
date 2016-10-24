@@ -35,7 +35,7 @@ ul {
 	<table border="3" style="width: 780px">
 		
 			<h1>2016.10 October</h1>
-			<a href="insertSchedule.do ">
+			<a href="InsertScheduleForm.jsp">
 				<input type="button" value="일정등록" >
 			</a>
 		<colgroup>
